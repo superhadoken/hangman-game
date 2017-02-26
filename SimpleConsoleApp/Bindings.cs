@@ -1,5 +1,6 @@
 ﻿using Ninject.Modules;
 using SimpleConsoleApp.Data_Access_Layer;
+using SimpleConsoleApp.Game_Controllers;
 using SimpleConsoleApp.Input_and_Validation;
 using SimpleConsoleApp.Logic;
 using SimpleConsoleApp.View;
@@ -26,6 +27,9 @@ namespace SimpleConsoleApp
             Bind<ICharMatcher>().To<CharMatcher>();
             Bind<IConvertWordToArray>().To<ConvertWordToArray>();
             Bind<IRandomWordSelector>().To<RandomWordSelector>();
+
+            // Game Controllers
+            Bind<IMainGame>().To<MainGame>();
         }
     }
 }
