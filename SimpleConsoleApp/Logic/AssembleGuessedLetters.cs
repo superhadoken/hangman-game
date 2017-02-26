@@ -4,12 +4,12 @@ namespace SimpleConsoleApp.Logic
 {
     public class AssembleGuessedLetters
     {
-        public IDictionary<char, bool> AssembleTheGuessedLetters(string word)
+        public IList<KeyValuePair<char, bool>> AssembleTheGuessedLetters(string word)
         {
-            var lettersGuessed = new Dictionary<char, bool>();
+            var lettersGuessed = new List<KeyValuePair<char, bool>>();
             foreach (var letter in word.ToCharArray())
             {
-                lettersGuessed.Add(letter, false);
+                lettersGuessed.Add(new KeyValuePair<char, bool>(letter, false));
             }
 
             return lettersGuessed;

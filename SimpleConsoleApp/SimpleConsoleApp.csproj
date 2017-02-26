@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Data Access Layer\FileReader.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="Input and Validation\ValidateInput.cs" />
     <Compile Include="Logic\AssembleGuessedLetters.cs" />
     <Compile Include="Logic\CharMatcher.cs" />
     <Compile Include="Logic\ConvertWordToArray.cs" />
@@ -71,10 +72,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Settings\" />
-    <Folder Include="Validation\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Dictionary\dictionary.txt" />
   </ItemGroup>

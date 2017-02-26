@@ -6,7 +6,7 @@ namespace SimpleConsoleApp.Data_Access_Layer
 {
     public class FileReader
     {
-        public static IEnumerable<string> LoadDictionary()
+        public IEnumerable<string> LoadDictionary()
         {
             var wordArray = new List<string>();
 

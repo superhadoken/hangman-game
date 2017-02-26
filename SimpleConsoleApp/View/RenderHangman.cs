@@ -124,6 +124,7 @@
         public string RenderGameOver()
         {
             return @"
+                            GAME OVER
 
              .... NO! ...                  ... MNO! ...
            ..... MNO!! ...................... MNNOO! ...
@@ -147,6 +148,8 @@
            ...... MNNNNO! .. PPPPPPPPP .. MMNON!........
               ...... OO! ................. ON! .......
                  ................................
+        
+                        Thank you for playing!
 ";
         }
     }

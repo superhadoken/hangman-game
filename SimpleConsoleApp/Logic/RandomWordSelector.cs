@@ -6,12 +6,7 @@ namespace SimpleConsoleApp.Logic
 {
     public class RandomWordSelector
     {
-        public RandomWordSelector()
-        {
-
-        }
-
-        public static string SelectRandomWordFromDictionary(IList<string> dictionary)
+        public string SelectRandomWordFromDictionary(IList<string> dictionary)
         {
             var maxDictionaryIndex = dictionary.Count() - 1;
 

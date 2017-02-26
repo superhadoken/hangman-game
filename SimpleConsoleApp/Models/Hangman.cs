@@ -4,14 +4,13 @@ namespace SimpleConsoleApp.Models
 {
     public class Hangman
     {
-        public int Counter { get; set; }
+        public int GuessesLeft { get; set; }
         public string WordToGuess { get; set; }
         public IList<KeyValuePair<char, bool>> LettersGuessed { get; set; }
-        public IList<char> GuessedLettersIndex { get; set; }
 
         public Hangman()
         {
-            Counter = 0;
+            GuessesLeft = 11;
         }
     }
 }
