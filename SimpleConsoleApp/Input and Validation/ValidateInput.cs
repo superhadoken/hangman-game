@@ -2,7 +2,7 @@
 
 namespace SimpleConsoleApp.Input_and_Validation
 {
-    public class ValidateInput
+    public class ValidateInput : IValidateInput
     {
         public bool UserInputIsValid(string userInput)
         {

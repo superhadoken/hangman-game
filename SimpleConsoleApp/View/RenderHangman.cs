@@ -1,6 +1,6 @@
 ﻿namespace SimpleConsoleApp.View
 {
-    public class RenderHangman
+    public class RenderHangman : IRenderHangman
     {
         public string SwitchAndDisplayHangmanImage(int guessRemaining)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SimpleConsoleApp.Data_Access_Layer
 {
-    public class FileReader
+    public class FileReader : IFileReader
     {
         public IEnumerable<string> LoadDictionary()
         {

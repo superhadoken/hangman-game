@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using Ninject;
 using SimpleConsoleApp.Data_Access_Layer;
 using SimpleConsoleApp.Input_and_Validation;
 using SimpleConsoleApp.Logic;
@@ -14,10 +16,12 @@ namespace SimpleConsoleApp
         {
             var randomWordSelctor = new RandomWordSelector();
             var letterFormatAssembler = new AssembleGuessedLetters();
-            var wordDictionaryLoader = new FileReader();
             var wordRenderer = new DisplayWord();
             var hangmanDisplay = new RenderHangman();
             var banners = new RenderBanner();
+            var kernal = new StandardKernel();
+            kernal.Load(Assembly.GetExecutingAssembly());
+            var wordDictionaryLoader = kernal.Get<IFileReader>();
 
             // Hello World!
             Console.WriteLine(banners.CreateBannerForGame());

@@ -1,6 +1,6 @@
 ﻿namespace SimpleConsoleApp.View
 {
-    public class RenderBanner
+    public class RenderBanner : IRenderBanner
     {
         public string CreateBannerForGame()
         {

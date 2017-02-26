@@ -2,7 +2,7 @@
 
 namespace SimpleConsoleApp.View
 {
-    public class DisplayWord
+    public class DisplayWord : IDisplayWord
     {
         public string RenderWordView(IList<KeyValuePair<char, bool>> word)
         {

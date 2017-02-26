@@ -21,3 +21,5 @@ C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleCons
 C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleConsoleApp\bin\Debug\Moq.dll
 C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleConsoleApp\bin\Debug\Castle.Core.xml
 C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleConsoleApp\bin\Debug\Moq.xml
+C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleConsoleApp\bin\Debug\Ninject.dll
+C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleConsoleApp\bin\Debug\Ninject.xml

@@ -2,7 +2,7 @@
 
 namespace SimpleConsoleApp.Logic
 {
-    public class AssembleGuessedLetters
+    public class AssembleGuessedLetters : IAssembleGuessedLetters
     {
         public IList<KeyValuePair<char, bool>> AssembleTheGuessedLetters(string word)
         {

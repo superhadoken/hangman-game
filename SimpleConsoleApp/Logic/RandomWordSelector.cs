@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SimpleConsoleApp.Logic
 {
-    public class RandomWordSelector
+    public class RandomWordSelector : IRandomWordSelector
     {
         public string SelectRandomWordFromDictionary(IList<string> dictionary)
         {

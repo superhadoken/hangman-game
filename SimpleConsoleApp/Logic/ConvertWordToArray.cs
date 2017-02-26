@@ -1,12 +1,7 @@
 ﻿namespace SimpleConsoleApp.Logic
 {
-    public class ConvertWordToArray
+    public class ConvertWordToArray : IConvertWordToArray
     {
-        public ConvertWordToArray()
-        {
-            
-        }
-
         public char[] ConvertertStringToCharArray(string word)
         {
             return word.ToCharArray();

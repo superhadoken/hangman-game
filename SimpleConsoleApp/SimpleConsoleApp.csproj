@@ -40,6 +40,10 @@
       <HintPath>..\packages\Moq.4.7.0\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -53,18 +57,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings.cs" />
     <Compile Include="Data Access Layer\FileReader.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="Data Access Layer\IFileReader.cs" />
+    <Compile Include="Input and Validation\IValidateInput.cs" />
     <Compile Include="Input and Validation\ValidateInput.cs" />
     <Compile Include="Logic\AssembleGuessedLetters.cs" />
     <Compile Include="Logic\CharMatcher.cs" />
     <Compile Include="Logic\ConvertWordToArray.cs" />
-    <Compile Include="Logic\GuessCounter.cs" />
+    <Compile Include="Logic\IAssembleGuessedLetters.cs" />
+    <Compile Include="Logic\ICharMatcher.cs" />
+    <Compile Include="Logic\IConvertWordToArray.cs" />
+    <Compile Include="Logic\IRandomWordSelector.cs" />
     <Compile Include="Logic\RandomWordSelector.cs" />
     <Compile Include="Models\Hangman.cs" />
     <Compile Include="Models\MatchQueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\DisplayWord.cs" />
+    <Compile Include="View\IDisplayWord.cs" />
+    <Compile Include="View\IRenderBanner.cs" />
+    <Compile Include="View\IRenderHangman.cs" />
     <Compile Include="View\RenderBanner.cs" />
     <Compile Include="View\RenderHangman.cs" />
   </ItemGroup>

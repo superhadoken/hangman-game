@@ -3,7 +3,7 @@ using SimpleConsoleApp.Models;
 
 namespace SimpleConsoleApp.Logic
 {
-    public class CharMatcher
+    public class CharMatcher : ICharMatcher
     {
         public MatchQueryResult CharIsMatchedInWord(IList<KeyValuePair<char, bool>> wordToMatch, char letterToMatch)
         {
