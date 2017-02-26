@@ -6,7 +6,7 @@ namespace SimpleConsoleApp.Models
     {
         public int Counter { get; set; }
         public string WordToGuess { get; set; }
-        public IDictionary<char, bool> LettersGuessed { get; set; }
+        public IList<KeyValuePair<char, bool>> LettersGuessed { get; set; }
         public IList<char> GuessedLettersIndex { get; set; }
 
         public Hangman()

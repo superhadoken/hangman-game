@@ -61,6 +61,7 @@
     <Compile Include="Logic\GuessCounter.cs" />
     <Compile Include="Logic\RandomWordSelector.cs" />
     <Compile Include="Models\Hangman.cs" />
+    <Compile Include="Models\MatchQueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
