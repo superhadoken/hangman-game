@@ -17,9 +17,10 @@ namespace SimpleConsoleApp
             var wordDictionaryLoader = new FileReader();
             var wordRenderer = new DisplayWord();
             var hangmanDisplay = new RenderHangman();
+            var banners = new RenderBanner();
 
             // Hello World!
-            Console.WriteLine(RenderBanner.CreateBannerForGame());
+            Console.WriteLine(banners.CreateBannerForGame());
 
             // Load the Dictionary
             var wordList = wordDictionaryLoader.LoadDictionary().ToList();
@@ -40,7 +41,16 @@ namespace SimpleConsoleApp
             // Perform Hangman Logic
             MainGame(hangmanObject);
             Console.Clear();
-            Console.WriteLine(hangmanDisplay.RenderGameOver());
+
+            // Results Screen
+            if (hangmanObject.WonGame)
+            {
+                Console.WriteLine(banners.YouWinBanner());
+                Console.WriteLine("                     You guessed the word in {0} guesses", new Hangman().GuessesLeft - hangmanObject.GuessesLeft);
+                Console.WriteLine("                     Thank you for playing");
+            }
+            else Console.WriteLine(hangmanDisplay.RenderGameOver());
+            Console.ReadKey();
         }
 
         private static void MainGame(Hangman hangmanObject)
@@ -50,9 +60,8 @@ namespace SimpleConsoleApp
             var charMatcher = new CharMatcher();
             var hangmanDisplay = new RenderHangman();
 
-            while (hangmanObject.GuessesLeft > 0)
+            while (hangmanObject.GuessesLeft > 0 && !hangmanObject.WonGame)
             {
-
                 var userInput = Console.ReadLine(); // Wait for user input
 
                 if (inputValidator.UserInputIsValid(userInput))
@@ -66,6 +75,11 @@ namespace SimpleConsoleApp
                         Console.WriteLine(hangmanDisplay.SwitchAndDisplayHangmanImage(hangmanObject.GuessesLeft));
                         Console.WriteLine("Word to guess: {0}",
                             wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
+                        if (result.GameIsWon)
+                        {
+                            hangmanObject.WonGame = result.GameIsWon;
+                            break;
+                        }
                     }
                     else
                     {

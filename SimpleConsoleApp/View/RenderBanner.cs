@@ -2,7 +2,7 @@
 {
     public class RenderBanner
     {
-        public static string CreateBannerForGame()
+        public string CreateBannerForGame()
         {
             return @"
                       _                                             
@@ -14,6 +14,19 @@
                                          __/ |                      
                                         |___/                       
                      by Mo Mutlak 2017";
+        }
+
+        public string YouWinBanner()
+        {
+            return @"
+                      _                     _                         
+                     (_|   |               (_|   |   |_/o            |
+                       |   |  __             |   |   |      _  _     |
+                       |   | /  \_|   |      |   |   |  |  / |/ |    |
+                        \_/|/\__/  \_/|_/     \_/ \_/   |_/  |  |_/  o
+                          /|                                          
+                          \|
+";
         }
     }
 }
