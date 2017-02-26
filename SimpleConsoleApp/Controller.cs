@@ -15,6 +15,8 @@ namespace SimpleConsoleApp
             var randomWordSelctor = new RandomWordSelector();
             var letterFormatAssembler = new AssembleGuessedLetters();
             var wordDictionaryLoader = new FileReader();
+            var wordRenderer = new DisplayWord();
+            var hangmanDisplay = new RenderHangman();
 
             // Hello World!
             Console.WriteLine(RenderBanner.CreateBannerForGame());
@@ -34,8 +36,11 @@ namespace SimpleConsoleApp
                 LettersGuessed = letterFormatAssembler.AssembleTheGuessedLetters(randomWord)
             };
 
+            Console.WriteLine("Word to guess: {0}", wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
             // Perform Hangman Logic
             MainGame(hangmanObject);
+            Console.Clear();
+            Console.WriteLine(hangmanDisplay.RenderGameOver());
         }
 
         private static void MainGame(Hangman hangmanObject)
@@ -45,7 +50,6 @@ namespace SimpleConsoleApp
             var charMatcher = new CharMatcher();
             var hangmanDisplay = new RenderHangman();
 
-            Console.WriteLine("Word to guess: {0}", wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
             while (hangmanObject.GuessesLeft > 0)
             {
 
@@ -58,19 +62,26 @@ namespace SimpleConsoleApp
                     hangmanObject.LettersGuessed = result.LettersGuessed;
 
                     if (result.MatchWasSuccesful)
-                        Console.WriteLine("Word to guess: {0}", wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
+                    {
+                        Console.WriteLine(hangmanDisplay.SwitchAndDisplayHangmanImage(hangmanObject.GuessesLeft));
+                        Console.WriteLine("Word to guess: {0}",
+                            wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
+                    }
                     else
                     {
                         hangmanObject.GuessesLeft--;
                         Console.WriteLine(hangmanDisplay.SwitchAndDisplayHangmanImage(hangmanObject.GuessesLeft));
-                        Console.WriteLine("Word to guess: {0}", wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
+                        Console.WriteLine("Word to guess: {0}",
+                            wordRenderer.RenderWordView(hangmanObject.LettersGuessed));
+
+                        // Pause screen before game over
+                        if (hangmanObject.GuessesLeft == 0)
+                            System.Threading.Thread.Sleep(3000);
                     }
                     MainGame(hangmanObject);
                 }
                 else Console.WriteLine(inputValidator.CreateInputErrorMessage());
             }
-            
-            Console.WriteLine(hangmanDisplay.RenderGameOver());
         }
     }
 }
