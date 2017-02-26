@@ -25,6 +25,9 @@ namespace SimpleConsoleApp
             // Select and print random word
             var randomWord = RandomWordSelector.SelectRandomWordFromDictionary(wordDictionary);
             Console.WriteLine(randomWord);
+
+            Console.ReadLine();  // Wait for user input
+            Console.Clear();
         }
     }
 }
