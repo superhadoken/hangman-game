@@ -1,6 +1,6 @@
 ﻿using SimpleConsoleApp.Models;
 
-namespace SimpleConsoleApp
+namespace SimpleConsoleApp.Game_Controllers
 {
     public interface IMainGame
     {

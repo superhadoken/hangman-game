@@ -3,13 +3,12 @@ using System.Linq;
 using System.Reflection;
 using Ninject;
 using SimpleConsoleApp.Data_Access_Layer;
-using SimpleConsoleApp.Game_Controllers;
 using SimpleConsoleApp.Input_and_Validation;
 using SimpleConsoleApp.Logic;
 using SimpleConsoleApp.Models;
 using SimpleConsoleApp.View;
 
-namespace SimpleConsoleApp
+namespace SimpleConsoleApp.Game_Controllers
 {
     public class Controller
     {
