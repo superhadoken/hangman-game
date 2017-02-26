@@ -5,11 +5,6 @@ namespace SimpleConsoleApp.Logic
 {
     public class CharMatcher
     {
-        public CharMatcher()
-        {
-            
-        }
-
         public MatchQueryResult CharIsMatchedInWord(IList<KeyValuePair<char, bool>> wordToMatch, char letterToMatch)
         {
             var matchSuccesful = false;

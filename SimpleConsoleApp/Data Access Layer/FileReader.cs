@@ -6,11 +6,6 @@ namespace SimpleConsoleApp.Data_Access_Layer
 {
     public class FileReader
     {
-        public FileReader()
-        {
-
-        }
-
         public static IEnumerable<string> LoadDictionary()
         {
             var wordArray = new List<string>();

@@ -2,6 +2,7 @@
 using System.Linq;
 using SimpleConsoleApp.Data_Access_Layer;
 using SimpleConsoleApp.Logic;
+using SimpleConsoleApp.View;
 
 namespace SimpleConsoleApp
 {
@@ -10,7 +11,7 @@ namespace SimpleConsoleApp
         static void Main(string[] args)
         {
             // Hello World!
-            Console.WriteLine("Hello World");
+            Console.WriteLine(RenderBanner.CreateBannerForGame());
 
             // Load the Dictionary
             var wordDictionary = FileReader.LoadDictionary().ToList();

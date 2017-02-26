@@ -63,6 +63,8 @@
     <Compile Include="Models\Hangman.cs" />
     <Compile Include="Models\MatchQueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\DisplayWord.cs" />
+    <Compile Include="View\RenderBanner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -71,7 +73,6 @@
   <ItemGroup>
     <Folder Include="Settings\" />
     <Folder Include="Validation\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dictionary\dictionary.txt" />
