@@ -29,8 +29,15 @@ namespace SimpleConsoleApp.Game_Controllers
 
                 if (_validateInput.UserInputIsValid(userInput))
                 {
+                    while (!_validateInput.UserInputIsUnique(userInput, hangmanObject))
+                    {
+                        Console.WriteLine(_validateInput.CreateUniqueInputErrorMessage());
+                        userInput = Console.ReadLine();
+                    }
+
                     Console.Clear();
                     hangmanObject.AlreadyGuessedLetters.Add(Convert.ToChar(userInput));
+                    
                     var result = _charMatcher.CharIsMatchedInWord(hangmanObject.LettersInWordSplit, userInput.ToCharArray()[0]);
                     hangmanObject.LettersInWordSplit = result.LettersGuessed;
 
