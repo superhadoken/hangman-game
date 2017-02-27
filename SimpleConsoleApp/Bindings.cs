@@ -31,6 +31,7 @@ namespace SimpleConsoleApp
             // Game Controllers
             Bind<IMainGame>().To<MainGame>();
             Bind<IResultsScreen>().To<ResultsScreen>();
+            Bind<IRunGame>().To<RunGame>();
         }
     }
 }
