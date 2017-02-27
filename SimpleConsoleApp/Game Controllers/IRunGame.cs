@@ -55,10 +55,10 @@ namespace SimpleConsoleApp.Game_Controllers
             var hangmanObject = new Hangman
             {
                 WordToGuess = randomWord,
-                LettersGuessed = _assembleGuessedLetters.AssembleTheGuessedLetters(randomWord)
+                LettersInWordSplit = _assembleGuessedLetters.AssembleTheGuessedLetters(randomWord)
             };
 
-            Console.WriteLine("Word to guess: {0}", _displayWord.RenderWordView(hangmanObject.LettersGuessed));
+            Console.WriteLine("Word to guess: {0}", _displayWord.RenderWordView(hangmanObject.LettersInWordSplit));
 
             // Perform Hangman Logic
             _mainGame.Run(hangmanObject);
@@ -67,7 +67,24 @@ namespace SimpleConsoleApp.Game_Controllers
 
             // Results Screen
             _resultsScreen.RunResults(hangmanObject);
-            System.Threading.Thread.Sleep(3000);
+
+            PlayAgainQuestion();
+        }
+
+        private void PlayAgainQuestion()
+        {
+            Console.WriteLine("Play again? [Y/N]");
+            var userInput = Console.ReadLine();
+            if (UserDidntAnswerYes(userInput)) 
+                return;
+            Console.Clear();
+            SetupAndStartNewGame();
+        }
+
+        private bool UserDidntAnswerYes(string userInput)
+        {
+            return userInput.IndexOf("yes", StringComparison.InvariantCultureIgnoreCase) == -1 &&
+                   userInput.IndexOf("y", StringComparison.InvariantCultureIgnoreCase) == -1;
         }
     }
 }

@@ -19,8 +19,6 @@ namespace SimpleConsoleApp.Game_Controllers
 
             var runGame = kernal.Get<IRunGame>();
             runGame.SetupAndStartNewGame();
-            
-            Console.ReadKey();
         }
     }
 }

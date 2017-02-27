@@ -6,13 +6,15 @@ namespace SimpleConsoleApp.Models
     {
         public int GuessesLeft { get; set; }
         public string WordToGuess { get; set; }
-        public IList<KeyValuePair<char, bool>> LettersGuessed { get; set; }
+        public IList<KeyValuePair<char, bool>> LettersInWordSplit { get; set; }
         public bool WonGame { get; set; }
+        public IList<char> AlreadyGuessedLetters { get; set; }
 
         public Hangman()
         {
             GuessesLeft = 11;
             WonGame = false;
+            AlreadyGuessedLetters = new List<char>();
         }
     }
 }

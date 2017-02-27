@@ -30,14 +30,13 @@ namespace SimpleConsoleApp.Game_Controllers
                 if (_validateInput.UserInputIsValid(userInput))
                 {
                     Console.Clear();
-                    var result = _charMatcher.CharIsMatchedInWord(hangmanObject.LettersGuessed, userInput.ToCharArray()[0]);
-                    hangmanObject.LettersGuessed = result.LettersGuessed;
+                    hangmanObject.AlreadyGuessedLetters.Add(Convert.ToChar(userInput));
+                    var result = _charMatcher.CharIsMatchedInWord(hangmanObject.LettersInWordSplit, userInput.ToCharArray()[0]);
+                    hangmanObject.LettersInWordSplit = result.LettersGuessed;
 
                     if (result.MatchWasSuccesful)
                     {
-                        Console.WriteLine(_renderHangman.SwitchAndDisplayHangmanImage(hangmanObject.GuessesLeft));
-                        Console.WriteLine("Word to guess: {0}",
-                            _displayWord.RenderWordView(hangmanObject.LettersGuessed));
+                        CreateView(hangmanObject);
                         if (result.GameIsWon)
                         {
                             hangmanObject.WonGame = result.GameIsWon;
@@ -47,18 +46,20 @@ namespace SimpleConsoleApp.Game_Controllers
                     else
                     {
                         hangmanObject.GuessesLeft--;
-                        Console.WriteLine(_renderHangman.SwitchAndDisplayHangmanImage(hangmanObject.GuessesLeft));
-                        Console.WriteLine("Word to guess: {0}",
-                            _displayWord.RenderWordView(hangmanObject.LettersGuessed));
-
-                        // Pause screen before game over
-                        if (hangmanObject.GuessesLeft == 0)
-                            System.Threading.Thread.Sleep(3000);
+                        CreateView(hangmanObject);
                     }
                     Run(hangmanObject);
                 }
                 else Console.WriteLine(_validateInput.CreateInputErrorMessage());
             }
+        }
+
+        private void CreateView(Hangman hangmanObject)
+        {
+            Console.WriteLine(_renderHangman.SwitchAndDisplayHangmanImage(hangmanObject.GuessesLeft));
+            Console.WriteLine("Word to guess: {0}",
+                _displayWord.RenderWordView(hangmanObject.LettersInWordSplit));
+            Console.WriteLine("Already guessed: {0}", string.Join(", ", hangmanObject.AlreadyGuessedLetters));
         }
     }
 }
