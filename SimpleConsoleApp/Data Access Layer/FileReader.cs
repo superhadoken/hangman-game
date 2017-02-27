@@ -14,11 +14,7 @@ namespace SimpleConsoleApp.Data_Access_Layer
 
             try
             {
-                var loadedFile =
-                    File.ReadLines(
-                        @"C:\Users\Mo Mutlak\Documents\Visual Studio 2013\Projects\hangman-game\SimpleConsoleApp\Dictionary\dictionary.txt",
-                        Encoding.UTF8).ToList();
-
+                var loadedFile = File.ReadLines("Dictionary\\dictionary.txt", Encoding.UTF8).ToList();
 
                 foreach (var line in loadedFile)
                 {
