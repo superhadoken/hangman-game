@@ -62,6 +62,7 @@
     <Compile Include="Game Controllers\Controller.cs" />
     <Compile Include="Data Access Layer\IFileReader.cs" />
     <Compile Include="Game Controllers\IMainGame.cs" />
+    <Compile Include="Game Controllers\IResultsScreen.cs" />
     <Compile Include="Game Controllers\MainGame.cs" />
     <Compile Include="Input and Validation\IValidateInput.cs" />
     <Compile Include="Input and Validation\ValidateInput.cs" />

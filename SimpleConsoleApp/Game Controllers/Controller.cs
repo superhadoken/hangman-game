@@ -16,7 +16,6 @@ namespace SimpleConsoleApp.Game_Controllers
         {
             var randomWordSelctor = new RandomWordSelector();
             var letterFormatAssembler = new AssembleGuessedLetters();
-            var banners = new RenderBanner();
 
             var kernal = new StandardKernel();
             kernal.Load(Assembly.GetExecutingAssembly());
@@ -26,6 +25,7 @@ namespace SimpleConsoleApp.Game_Controllers
             var validInput = kernal.Get<IValidateInput>();
             var charMatcher = kernal.Get<ICharMatcher>();
             var hangmanDisplay = kernal.Get<IRenderHangman>();
+            var banners = kernal.Get<IRenderBanner>();
 
             // Hello World!
             Console.WriteLine(banners.CreateBannerForGame());
@@ -54,13 +54,9 @@ namespace SimpleConsoleApp.Game_Controllers
             Console.Clear();
 
             // Results Screen
-            if (hangmanObject.WonGame)
-            {
-                Console.WriteLine(banners.YouWinBanner());
-                Console.WriteLine("                     You guessed the word in {0} guesses", new Hangman().GuessesLeft - hangmanObject.GuessesLeft);
-                Console.WriteLine("                     Thank you for playing");
-            }
-            else Console.WriteLine(hangmanDisplay.RenderGameOver());
+            var resultsScreen = new ResultsScreen(banners, hangmanDisplay);
+            resultsScreen.RunResults(hangmanObject);
+            System.Threading.Thread.Sleep(3000);
             Console.ReadKey();
         }
     }
